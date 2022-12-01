@@ -1,0 +1,64 @@
+10 10 translate
+/mreza { 0.5 0.3 0 0 setcmykcolor 
+/xOs 500 def
+/yOs 600 def
+gsave
+2 setlinewidth xOs 0 moveto 0 0 lineto 0 yOs lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+6 { 30 100 moveto xOs 100 lineto stroke 0 100 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+5 { 100 20 moveto 100 yOs lineto stroke 100 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 yOs { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 xOs { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+ 0 setgray } bind def
+mreza
+
+gsave % spremamo originalni koordinatni sustav
+100 100 translate % novi koordinatni sustav sa ishodistem u 100,100 starog koord. sustava
+0 0 80 45 135 arc %x y sredista u novom ishodistu
+0 0 lineto 
+closepath
+	5 setlinewidth
+	0 1 1 0 setcmykcolor % CMYK 100% crvena
+	stroke
+grestore % vraca originalni koord. sustav
+
+gsave % spremanje stanja koordinatnog sustava prije nove translacije
+200 200 translate 
+0 0 80 45 135 arc 
+0 0 lineto 
+closepath
+	1 0 0 setrgbcolor % RGB 100% crvena 
+	stroke
+grestore % vraca originalni koord. sustav
+
+gsave % spremanje stanja koordinatnog sustava prije nove translacije
+100 400 translate 
+0 0 80 45 135 arc 
+0 0 lineto 
+closepath
+	1 1 1 sethsbcolor % HSB 100% crvena
+	fill
+grestore % vraca originalni koord. sustav
+
+gsave % spremanje stanja koordinatnog sustava prije nove translacije
+	250 100 translate 
+	0 0 80 45 135 arc 
+	0 0 lineto 
+	closepath
+	gsave % ovim gsave spremamo gornju stazu 
+		0.5 1 1 sethsbcolor % HSB 100% cyan 
+		fill
+	grestore % vraca stazu za crtanje obruba
+		4 setlinewidth
+		0.5 0.5 0.5 sethsbcolor %HSB cyan 50%  svjetline i 50% saturacije
+		stroke
+grestore % vraca originalni koord. sustav

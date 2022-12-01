@@ -1,0 +1,116 @@
+10 10 translate
+/mreza {0.5 0.3 0 0 setcmykcolor 
+/xOs 500 def
+/yOs 600 def
+gsave
+2 setlinewidth xOs 0 moveto 0 0 lineto 0 yOs lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+6 { 30 100 moveto xOs 100 lineto stroke 0 100 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+5 { 100 20 moveto 100 yOs lineto stroke 100 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 yOs { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 xOs { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+0 setgray } bind def
+mreza
+gsave
+/mask{		
+		/AvantGarde-DemiOblique findfont 105 scalefont setfont 70 400 moveto 
+		(JEX-2K!) false charpath 
+     } def 
+
+/tekstura {
+	0 5 400 {/i exch def 
+		/b i 400 div def 
+		/b1 1 b sub def 
+		b1 b 1 0 setcmykcolor
+        2 setlinewidth		
+		200 200 i 0 360 arc stroke
+	}for 
+} def 
+
+/leteci{
+    /Helvetica-Bold findfont 25 scalefont setfont
+	1 0 1 setrgbcolor
+	50 370 moveto 
+	0 12 97 -0.5 -2 (jeste li spremni za dogadjaj godine?! ) awidthshow     
+}def
+
+/nigdje
+{
+/Times-BoldItalic findfont 47 scalefont setfont
+	70 120 moveto
+	/b 1 def 				
+	b 1 1 sethsbcolor
+%prva rotacija
+	{pop pop 				 
+		/b b 0.083 sub def 
+		1 b b sethsbcolor 		
+		2 rotate 		
+	} 				
+	(NIGDJE) kshow	
+% suprotna rotacija	
+{pop pop 				 
+		/b b 0.083 sub def 
+		b b 0.5 sethsbcolor 		
+		-6 rotate 
+}		
+    (ZEMSKA) kshow
+grestore
+gsave
+
+}def
+
+%izvrsavanje:
+
+%podnaslov
+/Times-BoldItalic findfont 21 scalefont setfont 100 490 moveto 
+(HE'S BACK & HE'S GONNA ATTACK!) show
+
+%SAD ILI NIKAD Tekst
+/NewCenturySchlbk-Bold findfont 30 scalefont setfont
+80 280 moveto 
+0.5 0.7 0.2 setrgbcolor
+(SAD ILI NIKAD!) 
+[ 25 0 25 -10 25 10 25 0
+  25 5 25 10 25 -10 25 0
+  35 0 25 -10 25 10 35 5 25 0 35 0 25 0] xyshow
+%Lokacija
+/AvantGarde-Demi findfont 54 scalefont setfont
+100 180 translate
+0 1 20 {/i exch def
+	/b i 20 div def
+	b 0.5 1 setrgbcolor
+	i 30 moveto 
+	1 0 (LOKACIJA) ashow 
+ }for
+ grestore gsave 
+%datum
+/Palatino-Bold findfont 28 scalefont setfont
+0 1 20 {/i exch def
+	/b i 20 div def
+	0 b 0 setrgbcolor
+	i 30 moveto 
+	1 0 (DEC 32nd 2099 IN THE MOTION) ashow 
+ }for
+
+%nigdjezemska
+nigdje
+%dijagonalni tekst
+leteci 
+%naslov eventa
+mask	
+clip 		
+newpath 	
+tekstura	
+
+
+
+

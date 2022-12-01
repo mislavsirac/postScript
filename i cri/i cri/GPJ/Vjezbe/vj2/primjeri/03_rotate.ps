@@ -1,0 +1,115 @@
+10 10 translate
+/mreza { 0.5 0.3 0 0 setcmykcolor 
+/xOs 500 def
+/yOs 600 def
+gsave
+2 setlinewidth xOs 0 moveto 0 0 lineto 0 yOs lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+6 { 30 100 moveto xOs 100 lineto stroke 0 100 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+5 { 100 20 moveto 100 yOs lineto stroke 100 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 yOs { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 xOs { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+ 0 setgray } bind def
+mreza
+gsave % spremanje stanja koordinatnog sustava prije nove translacije
+	200 200 translate % novo ishodiste 200,200
+	0 0 100 45 90 arc 
+	0 0 lineto 
+	closepath
+		0.8 1 1 sethsbcolor % Hue 0.8, saturacija 100%, svjetlina 100% 
+		fill
+
+	60 rotate % srediste rotacije je u ishodistu novog koord. sustava. pozitivna rotacija u smjeru suprotnom od kazaljke na satu
+	0 0 100 45 90 arc 
+	0 0 lineto 
+	closepath
+		0.8 0.8 1 sethsbcolor %smanjenje saturacije u odnosu na prethodnu boju
+		fill
+
+	60 rotate % rotacija za 60 u odnosu na prethodnu rotaciju (ukupno 120)
+	0 0 100 45 90 arc 
+	0 0 lineto 
+	closepath
+		0.8 0.6 1 sethsbcolor 
+		fill
+
+	60 rotate % rotacija za 60 u odnosu na prethodnu rotaciju (ukupno 180)
+	0 0 100 45 90 arc 
+	0 0 lineto 
+	closepath
+		0.8 0.4 1 sethsbcolor 
+		fill
+
+	60 rotate % rotacija za 60 u odnosu na prethodnu rotaciju (ukupno 240)
+	0 0 100 45 90 arc 
+	0 0 lineto 
+	closepath
+		0.8 0.2 1 sethsbcolor 
+		fill
+
+	60 rotate % rotacija za 60 u odnosu na prethodnu rotaciju (ukupno 300)
+	0 0 100 45 90 arc 
+	0 0 lineto 
+	closepath
+		0.8 0.1 1 sethsbcolor 
+		fill
+grestore % vraca originalni koord. sustav
+
+gsave 
+	400 400 translate %novo ishodiste
+	0 0 80 45 270 arc 
+	0 0 lineto closepath 
+		1 0.5 0 setrgbcolor % narancasta
+		fill
+	-20 rotate % rotacija u smjeru kazaljke na satu oko ishodista 400,400
+	0 0 70 45 270 arc 
+	0 0 lineto closepath 
+		1 0.7 0 setrgbcolor % narancasto-zuta
+		5 setlinewidth
+		stroke
+	-20 rotate % rotacija u smjeru kazaljke na satu oko ishodista 400,400
+	0 0 60 45 270 arc 
+	0 0 lineto closepath 
+		1 0.3 0 setrgbcolor %narancasto-crvena
+		stroke
+grestore
+
+gsave 
+200 400 translate 
+	50 0 20 0 360 arc %srediste pomaknuto za 50 u odnosu na novo ishodiste 200,400
+		0.3 1 1 sethsbcolor 
+		fill
+	gsave
+	40 rotate % rotacija oko točke 200,400 za 40 u suprotnom smjeru od kazaljke na satu
+	50 0 20 0 360 arc
+		0.3 1 0.8 sethsbcolor % smanjenje svjetline u odnosu na prethodnu boju 
+		fill
+	grestore 
+	gsave 
+	80 rotate % zbog restoriranja grafickog stanja rotiramo u odnosu na pocetni kut 0
+	50 0 20 0 360 arc
+		0.3 1 0.6 sethsbcolor 
+		fill
+	grestore 
+	gsave 
+	120 rotate
+	50 0 20 0 360 arc
+		0.3 1 0.4 sethsbcolor 
+		fill
+	grestore
+	gsave 
+	160 rotate
+	50 0 20 0 360 arc
+		0.3 1 0.2 sethsbcolor 
+		fill
+	grestore
+grestore

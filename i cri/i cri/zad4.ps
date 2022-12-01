@@ -1,0 +1,85 @@
+
+/list {
+	5 0 moveto 
+	200 0 
+	200 100 
+	200 200 curveto 
+	200 100
+	0 200 
+	0 5 curveto 
+	150 120 lineto 
+	closepath
+} def
+
+% iz magente u zelenu
+gsave
+350 100 translate
+0.5 0.5 scale
+/b1 1 def
+/b2 0 def
+/b3 1 def
+/brojac 15 def
+/kut 360 brojac div def
+/deltaB 1 brojac div def
+	brojac {
+list
+gsave 
+	b1 b2 b3 setrgbcolor fill        
+grestore
+	0.5 0 0 setrgbcolor stroke
+kut rotate
+50 50 translate
+0.95 0.95 scale
+/b1 b1 deltaB sub def
+/b2 b2 deltaB add def
+/b3 b3 deltaB sub def
+} repeat
+grestore
+
+
+% cmyk plava u zutu
+gsave
+250 500 translate
+-0.5 0.5 scale
+/b1 1 def
+/b2 1 def
+/b3 0 def
+/brojac 15 def
+/kut 360 brojac div def
+/deltaB 1 brojac div def
+	brojac {
+list
+gsave 
+	b1 b2 b3 0 setcmykcolor fill        
+grestore
+	1 0 0 setrgbcolor stroke
+kut rotate
+50 50 translate
+0.95 0.95 scale
+/b1 b1 deltaB sub def
+/b2 b2 deltaB sub def
+/b3 b3 deltaB add def
+} repeat
+grestore
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

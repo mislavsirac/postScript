@@ -1,0 +1,76 @@
+10 10 translate
+/mreza {0.5 0.3 0 0 setcmykcolor 
+/xOs 500 def
+/yOs 600 def
+gsave
+2 setlinewidth xOs 0 moveto 0 0 lineto 0 yOs lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+6 { 30 100 moveto xOs 100 lineto stroke 0 100 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+5 { 100 20 moveto 100 yOs lineto stroke 100 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 yOs { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 xOs { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+0 setgray } bind def
+
+mreza
+gsave
+/maska {
+250 250 250 0 180 arc
+250 0 lineto closepath stroke
+} def
+
+
+%krivulja
+/krivulja {
+0 5 600{
+    /i exch def
+    /b i 600 div def
+    /b1 1 b sub def
+    b1 0 b 0 setcmykcolor
+	 2 setlinewidth
+    0 600 moveto
+    i 500
+    i 300
+    i 0 curveto stroke
+   
+} for
+} def
+
+
+krivulja
+maska clip newpath
+
+grestore
+
+
+%drugi dio
+0 0 translate
+/Palatino-Bold findfont 50 scalefont setfont 0 0 moveto 
+
+ 0 1 25 {/j exch def
+    gsave
+    /b j 25 div def 
+    b 0 0 setrgbcolor
+    j 1 (Ime Prezime) ashow
+ grestore
+ } for
+ 
+ 
+ %ovojnica
+
+gsave
+/Helvetica-Bold findfont 70 scalefont setfont
+    0.5 setgray 
+    400 600 moveto
+    -90 rotate
+    2 setlinewidth
+    (GPJ 2. kolokvij) false charpath stroke
+ grestore

@@ -1,0 +1,36 @@
+10 10 translate
+/mreza {0.5 0.3 0 0 setcmykcolor 
+/xOs 500 def
+/yOs 600 def
+gsave
+2 setlinewidth xOs 0 moveto 0 0 lineto 0 yOs lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+6 { 30 100 moveto xOs 100 lineto stroke 0 100 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+5 { 100 20 moveto 100 yOs lineto stroke 100 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 yOs { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 xOs { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+0 setgray } bind def
+mreza
+
+0 setlinecap %default
+% ponavljajuce vertikalne linije kojima se mijenja debljina linije
+10 15 300 {/i exch def
+	/b i 300 div def 
+	/b1 1 b sub def 
+	1 b1 b setrgbcolor %boja 1,1,0 prelazi u 1,0,1
+	/d i 30 div def  % debljina lin. 1 -> 10
+	d setlinewidth 
+	[5 10]0 setdash
+	i 0 moveto 
+	i 300 lineto 
+	stroke
+} for

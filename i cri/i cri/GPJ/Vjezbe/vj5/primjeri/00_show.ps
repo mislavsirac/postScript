@@ -1,0 +1,67 @@
+10 10 translate
+/mreza {0.5 0.3 0 0 setcmykcolor 
+/xOs 500 def
+/yOs 600 def
+gsave
+2 setlinewidth xOs 0 moveto 0 0 lineto 0 yOs lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+6 { 30 100 moveto xOs 100 lineto stroke 0 100 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+5 { 100 20 moveto 100 yOs lineto stroke 100 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 yOs { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 xOs { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+0 setgray } bind def
+mreza
+
+% definiranje teksta 
+0 1 1 0 setcmykcolor
+/Times-Roman findfont 50 scalefont setfont
+0 30 moveto 
+(Moj tekst) show
+
+% tekst sa ovojnicom i rotacijom
+gsave 
+250 0 translate 
+45 rotate 
+1 0 0 0 setcmykcolor 
+/Helvetica findfont 40 scalefont setfont
+0 0 moveto 
+(Drugi tekst) false charpath stroke 
+grestore
+
+%ponavljajući tekst
+gsave
+0.2 setgray
+0 100 translate
+10 20 110 {/i exch def 	% varijabla i predstavlja velicinu teksta
+	/Bookman-Light findfont i scalefont setfont
+	0 i moveto 
+	(ponavljam se) show 
+}for 
+grestore
+
+%tekst ispunjen teksturom
+gsave 
+0 400 translate
+/Times-Italic findfont 150 scalefont setfont 0 0 moveto
+	(tekstura) false charpath 
+clip 
+newpath
+% horizontalne linije teksture
+0 4 100 {/i exch def
+	/b i 100 div def 
+	/b1 1 b sub def 
+	b1 1 b setrgbcolor
+	0 i moveto 
+	500 i lineto 
+	stroke
+ }for
+grestore 

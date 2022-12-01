@@ -1,0 +1,59 @@
+10 10 translate
+/mreza {0.5 0.3 0 0 setcmykcolor 
+/xOs 500 def
+/yOs 600 def
+gsave
+2 setlinewidth xOs 0 moveto 0 0 lineto 0 yOs lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+6 { 30 100 moveto xOs 100 lineto stroke 0 100 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+5 { 100 20 moveto 100 yOs lineto stroke 100 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 yOs { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 xOs { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+0 setgray } bind def
+ mreza
+ /Helvetica findfont 80 scalefont setfont
+	% 1. primjer kshow
+gsave
+	0 100 moveto
+	/b 1 def 				%početna vrijednost za boju
+	b 1 1 sethsbcolor
+	{pop pop 				% izbrisi iz memorije ascii kodove slova 
+		/b b 0.083 sub def 		% definiraj promjenu boje za 12 znakova-> b=b-1/12
+		b 1 1 sethsbcolor 		
+		9 rotate 		% rotiraj za 9 stupnjeva nakon ispisa svakog znaka
+	} 				
+	(sareni-tekst) kshow		% ispis stringa 'sareni-tekst'
+grestore
+	
+% 2. primjer kshow
+	200 100 moveto 
+	{pop pop 					
+		0 -20 rmoveto % pomakni se za 20 dolje relativno od tekuće pozicije
+		1 0 1 setrgbcolor 			% promijeni boju u magenta
+		(*) show 					% ispisi znak "*"
+		0 setgray					% vrati pocetnu boju - crnu
+		0 20 rmoveto				% vrati pocetnu poziciju 
+	} 
+	(text?) kshow					% ispis stringa 'text?'
+	
+% 3. primjer kshow	
+/Helvetica findfont 30 scalefont setfont	
+	300 300 moveto
+	/b 0 def 					%pocetna vrijednost boje
+	b 0 0 setrgbcolor
+	{pop pop 
+		1 -1 scale				% zrcali po y osi
+		/b b 0.09 add def		% povecaj vrijednost boje za 1/11
+		b 0 0 setrgbcolor		
+	} 
+	(ime prezime) kshow			% ispisi string 'ime prezime'
+showpage

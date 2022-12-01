@@ -1,0 +1,57 @@
+definiranje prijelaza boja u for petlji:
+
+0 10 200 {/i exch def 
+	/b i 200 def 
+	/b1 1 b sub def 
+	b 0 b1 setrgbcolor
+	...crtaj oblik...
+}for 
+
+- varijabla i se kreće u rasponu 0 - 200
+- boja mora biti definirana u rasponu 0 - 1 
+- raspon 0-1 mozemo dobiti iz raspona 0-200 
+  tako da ga podijelimo sa 200 
+- tada je 0/200=0, a 200/200=1 
+- tom logikom smo definirali varijablu b=i/200
+- budući da se petlja vrti uzlazno od manjeg broja (0) prema većem (200) tada i raspon boje ide uzlazno 0-1 
+- za prvi krug petlje vrijedi b=0
+- za posljednji krug petlje vrijedi b=1 
+-> dobivamo raspon varijable b 0-1
+
+- ako želimo uzlazni raspon 0-1 pretvoriti u silazni raspon 1-0 
+  tada ćemo od 1 oduzeti raspon 0-1 
+- tom logikom je definirana varijabla b1=1-b 
+- u prvom krugu petlje b1=1-0=1 
+- u posljednjem krugu petlje b1=1-1=0
+- dobivamo raspon varijable b1 1-0 
+
+primjer gore: 
+b 0 b1 setrgbcolor 
+1.krug b=0, b1=1 
+0 0 1 -> plava
+zadnji krug: 
+1 0 0 -> crvena
+(zelena je konstanta = 0)
+- u ostalim krugovima petlje su vrijednosti boja izračunate kao  decimalne vrijednosti unutar raspona 0-1 i 1-0 
+
+Primjer: prijelaz iz zelene u magentu 
+			R G B
+zelena		0 1 0
+magenta		1 0 1 
+			b b1 b setrgbcolor 
+
+			C  M Y  K
+zelena		1  0 1  0
+magenta		0  1 0  0
+			b1 b b1 0 setcmykcolor 
+			
+Primjer:
+				R G B
+crvena			1 0 0
+žuta			1 1 0
+				1 b 0 setrgbcolor 
+
+				C M  Y K
+crvena			0 1  1 0
+žuta 			0 0  1 0 
+				0 b1 1 0 setcmykcolor 

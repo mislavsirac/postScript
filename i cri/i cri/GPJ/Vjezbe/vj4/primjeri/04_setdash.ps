@@ -1,0 +1,126 @@
+50 25 translate
+/mreza { 0.5 0.3 0 0 setcmykcolor 
+/xOs 700 def
+/yOs 700 def
+gsave
+2 setlinewidth xOs 0 moveto 0 0 lineto 0 yOs lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+7 { 30 100 moveto xOs 100 lineto stroke 0 100 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+7 { 100 20 moveto 100 yOs lineto stroke 100 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 yOs { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 xOs { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+ 0 setgray } bind def
+
+
+mreza
+
+/linija {
+	0 0 moveto 
+	x 0 rlineto % horizont. linija duzine x
+	} def
+
+/x 200 def
+
+gsave
+% [L P] O setdash 
+% L -> duzina linije 
+% P -> duzina praznine
+% O -> skraćenje prve linije (ofset)
+20 setlinewidth
+
+[] 0 setdash % puna linija
+ linija stroke
+
+[10] 0 setdash % jednaka duzina linija i praznina
+0 50 translate 
+ linija stroke
+
+[10] 5 setdash % prva linija je skracena za 5 ostale su 10
+0 50 translate 
+ linija stroke
+
+[20 10] 0 setdash % linija 20, praznina 10
+0 50 translate 
+ linija stroke
+
+[20 10 3 5] 10 setdash %nepravilan niz: linija 20, praznina 10, linija 3, praznina 5, skracenje prve linije za 5
+0 50 translate 
+ linija stroke
+
+% 1 setlinecap daje liniju sa okruglim završetkom; kraj linije se produzuje za debljinu/2
+1 setlinecap 
+10 setlinewidth
+
+[10] 0 setdash %linija zavrsava nakon 10 točaka ali se produzuje za radijus 5
+0 50 translate 
+ linija stroke
+
+[10] 5 setdash 
+0 50 translate 
+ linija stroke
+
+[0 10] 0 setdash 
+0 50 translate 
+200 linija stroke
+
+[10 20 3 15] 0 setdash 
+0 50 translate 
+200 linija stroke
+grestore
+gsave
+10 setlinewidth
+% 2 setlinecap daje liniju sa kvadratnim završetkom; kraj linije se produzuje za debljinu/2
+2 setlinecap 
+
+[] 0 setdash 
+300 100 translate 
+200 linija stroke
+
+[20] 0 setdash 
+0 50 translate 
+ linija stroke
+
+[30 20] 29 setdash 
+0 50 translate 
+ linija stroke
+
+[1 20 1 30 5 40] 0 setdash 
+0 50 translate 
+ linija stroke
+
+grestore
+
+%kombiniranje zavrsetaka za razne efekte (crvena+)
+
+1 0 0 setrgbcolor
+600 0 moveto
+0 400 rlineto 
+30 setlinewidth 
+1 setlinecap 
+[0 30] 0 setdash 
+stroke
+
+0.2 setgray % horizontalne
+600 0 moveto
+0 400 rlineto 
+25 setlinewidth 
+0 setlinecap 
+[2 28] 0 setdash 
+stroke
+
+600 0 moveto % vertikalne
+0 400 rlineto 
+2 setlinewidth 
+0 setlinecap 
+[25 5] 12.5 setdash 
+stroke
+

@@ -1,0 +1,66 @@
+10 10 translate
+/mreza {0.5 0.3 0 0 setcmykcolor 
+/xOs 500 def
+/yOs 600 def
+gsave
+2 setlinewidth xOs 0 moveto 0 0 lineto 0 yOs lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+6 { 30 100 moveto xOs 100 lineto stroke 0 100 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+5 { 100 20 moveto 100 yOs lineto stroke 100 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 yOs { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 xOs { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+0 setgray } bind def
+ mreza
+ 
+/Helvetica findfont 80 scalefont setfont 
+	% widthshow
+	1 0 0 setrgbcolor
+	10 0 moveto 
+	0 20 97 (maximalizaaam) widthshow   
+	% 97 ascii kod za slovo "a"
+	%nakon svakog "a" se pomakni za 0 20
+	
+	%awidthshow
+	0 setgray
+	0 100 moveto
+	0 20 105 -5 0 (inicijacija) awidthshow
+	%105 ascii kod za slovo "i"
+	% za sve znakove se pomakni za -5 0, a nakon svakog "i" za 0 20
+ 	
+	0 setgray
+	0 10 moveto 
+	0 20 105 (mini-maliiiizam) widthshow   
+	%105 ascii kod za slovo "i"
+	% nakon svakog "i" se pomakni za 0 20
+	
+	
+	% awidthshow
+	1 0 0 setrgbcolor
+	0 300 moveto 
+	0 -20 97 10 10 (animaacija) awidthshow  
+	% 97 ascii kod za slovo a
+	% za sve znakove se pomakni za 10 10, a nakon svakog "a" za 0 -20
+
+	
+showpage
+
+
+
+
+
+
+
+
+
+
+
+

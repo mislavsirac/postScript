@@ -1,0 +1,62 @@
+10 10 translate
+/mreza {0.5 0.3 0 0 setcmykcolor 
+/xOs 500 def
+/yOs 600 def
+gsave
+2 setlinewidth xOs 0 moveto 0 0 lineto 0 yOs lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+6 { 30 100 moveto xOs 100 lineto stroke 0 100 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+5 { 100 20 moveto 100 yOs lineto stroke 100 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 yOs { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 xOs { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+0 setgray } bind def
+
+mreza
+
+% curveto, procedure, varijable, repeat
+% krivulja zadana unutar poligona 
+% 0 0 0 200 200 200 200 0 
+gsave
+/krivulja {150 0 0 150 150 150 curveto} def
+/brojac 30 def
+/kut 360 brojac div def % kut = 360/brojac
+
+200 200 translate
+brojac { 
+	0 1 0 setrgbcolor
+	10 0 moveto
+	krivulja stroke
+		gsave
+		1 0 0 setrgbcolor 
+		-1 1 scale % crvena krivulja je zrcaljena u odnosu na zelenu
+		0 0 moveto
+		krivulja stroke 
+		grestore % gsave i grestore koristimo ovdje zbog zrcaljenja da se vratimo u prethodni koordinatni sustav
+	kut rotate 
+}repeat 
+
+grestore
+
+% na temelju broja linija i raspona unutar kojeg zelimo 
+gsave 
+/linija {0 0 moveto 100 0 rlineto} def 
+/brojLinija 40 def 
+/raspon 200 def 
+/Ypomak raspon brojLinija div def 
+
+400 100 translate
+brojLinija {
+	linija stroke 
+	0 Ypomak translate 
+}repeat
+
+grestore

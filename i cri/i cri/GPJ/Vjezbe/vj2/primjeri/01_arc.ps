@@ -1,0 +1,117 @@
+10 10 translate
+/mreza { 0.5 0.3 0 0 setcmykcolor 
+/xOs 500 def
+/yOs 600 def
+gsave
+2 setlinewidth xOs 0 moveto 0 0 lineto 0 yOs lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+6 { 30 100 moveto xOs 100 lineto stroke 0 100 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+5 { 100 20 moveto 100 yOs lineto stroke 100 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 yOs { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 xOs { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+ 0 setgray } bind def
+mreza
+
+% arc i arcn sa istim parametrima
+50 50 40 45 360 arc 
+	5 setlinewidth 
+	0.5 setgray
+	stroke
+50 50 40 45 360 arcn
+	10 setlinewidth 
+	1 0 0 setrgbcolor % RGB crvena 100%0%0%
+	stroke
+
+% otvoreni arc sa ispunom i obrubom
+200 100 100 180 360 arc 
+	gsave 
+	0 1 0 setrgbcolor % RGB zelena 0%100%0%
+	fill 
+	grestore 
+	0 0.5 0 setrgbcolor % RGB tamnozelena 0%50%0%
+	stroke 
+
+% zatvoreni arc 
+200 150 50 0 180 arc closepath 
+	0 0.5 1 setrgbcolor % RGB zelenoplava 0%50%100%
+	fill
+200 120 100 180 0 arcn closepath 
+	0 0 1 setrgbcolor %RGB plava 0%0%100%
+	stroke
+
+% otvoreni arc sa obrubom
+100 300 50 45 300 arc 	
+	3 setlinewidth 
+	0 1 1 setrgbcolor % RGB cyan 0%100%100%  
+	stroke
+
+% zatvoreni arc sa obrubom
+200 300 50 45 300 arc closepath 
+	1 0 1 setrgbcolor % RGB magenta 100%0%100%  
+	stroke
+
+% zatvoreni arc sa linijom u srediste "torta"
+300 300 50 45 300 arc 
+300 300 lineto 
+closepath 
+	1 1 0 setrgbcolor % RGB zuta 100%100%0%  
+	stroke
+
+% zatvoreni arc sa linijom izvan sredista
+400 300 50 320 220 arc 
+400 200 lineto 
+closepath 
+	0 0 0 setrgbcolor % RGB crna 0%0%0%  
+	stroke
+
+% zatvoreni arcn sa linijom izvan sredista
+400 200 50 320 220 arcn 
+400 100 lineto 
+closepath 
+	1 0 0 0 setcmykcolor % CMYK cyan 100%0%0%0%
+	stroke
+
+% zatvoreni oblik "potkova"
+400 50 50 180 360 arc 
+-20 0 rlineto 
+400 50 30 360 180 arcn 
+closepath
+	0 1 0 0 setcmykcolor % CMYK magenta 0%100%0%0%  
+	stroke
+
+% zatvoreni arc i arcn sa ispunom
+400 500 50 320 220 arc 
+closepath 
+	1 1 0 0 setcmykcolor % CMYK plava 100%100%0%0%  
+	fill
+400 500 50 320 220 arcn
+closepath 
+	0 0 0 0.6 setcmykcolor % CMYK 60% siva
+	fill
+
+
+% 5. GRF logo
+
+150 450 50 180 270 arc %donji lijevi
+100 0 rlineto 
+250 450 50 270 360 arc %donji desni
+0 100 rlineto 
+250 550 50 0 90 arc %gornji desni
+-100 0 rlineto 
+150 550 50 90 180 arc %gornji lijevi
+closepath
+	10 setlinewidth
+	0.3 0.3 0.3 setrgbcolor %RGB 70% siva
+	stroke	
+240 540 30 0 360 arc %unutrasnji krug
+	0 0 0 1 setcmykcolor %CMYK 100% crna
+	fill

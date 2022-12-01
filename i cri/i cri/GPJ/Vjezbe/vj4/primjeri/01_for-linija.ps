@@ -1,0 +1,76 @@
+10 10 translate
+/mreza {0.5 0.3 0 0 setcmykcolor 
+/xOs 500 def
+/yOs 600 def
+gsave
+2 setlinewidth xOs 0 moveto 0 0 lineto 0 yOs lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+6 { 30 100 moveto xOs 100 lineto stroke 0 100 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+5 { 100 20 moveto 100 yOs lineto stroke 100 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 yOs { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 xOs { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+0 setgray } bind def
+mreza
+
+% for petlja 
+
+0 10 300 {/i exch def
+	150 0 moveto 
+	i 100 lineto
+	i 200 lineto
+	stroke   		%crni 
+} for
+
+gsave 
+300 0 translate
+1 0 0 setrgbcolor %crveni
+0 3 200 {/i exch def
+	i i moveto 
+	i 100 lineto
+	stroke
+}for
+grestore
+
+gsave
+0 1 0 setrgbcolor %zeleni
+0 300 translate
+0 5 200 {/i exch def
+	i 0 moveto 
+	0 i lineto 
+	stroke
+}for
+0 0 1 setrgbcolor % plavi
+0 5 200 {/i exch def
+	i 200 moveto 
+	200 i lineto 
+	stroke
+}for
+grestore
+
+gsave 
+300 300 translate 
+0.8 0 0.8 setrgbcolor % ljubicasti
+0 5 200 {/i exch def
+	0 i moveto 
+	i 200 lineto 
+	stroke
+}for
+1 0.6 0 setrgbcolor % narancasti
+0 5 200 {/i exch def
+	i 0 moveto 
+	200 i lineto 
+	stroke
+}for
+grestore
+
+
+

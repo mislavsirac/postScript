@@ -1,0 +1,59 @@
+10 10 translate
+/mreza {0.5 0.3 0 0 setcmykcolor 
+/xOs 500 def
+/yOs 600 def
+gsave
+2 setlinewidth xOs 0 moveto 0 0 lineto 0 yOs lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+6 { 30 100 moveto xOs 100 lineto stroke 0 100 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+5 { 100 20 moveto 100 yOs lineto stroke 100 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 yOs { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 xOs { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+0 setgray } bind def
+mreza
+gsave
+% krivulja u for petlji 
+0 20 200 {/i exch def
+	0 100 moveto  	%P1 x i y fiksni
+	0 i 			%P2 x fiksni y se mijenja od 0-200
+	200 i 			%P3 x fiksni y promjenjiv
+	200 100 curveto %P4 x i y fiksni
+	
+	/b i 200 div def 
+	b 0 b setrgbcolor 
+	%b je u prvom crtanju b=0/200=0, u zadnjem crtanju je b=200/200=1, zato boja ide od crne (0,0,0) prema magenti (1,0,1)
+	stroke
+}for 
+grestore 
+
+gsave 
+0 20 200 {/i exch def
+	/b i 200 div def	% 0 -> 1  
+	/b1 1 b sub def 	% 1 -> 0
+	b 0 b1 setrgbcolor 
+	300 i moveto  	%P1 x fiksni y promjenjiv
+	300 100 		%P2 x i y fiksni
+	500 100 		%P3 x i y fiksni	
+	500 i curveto 	%P4 x fiksni y promjenjiv
+	stroke
+}for 
+grestore 
+
+gsave 
+100 10 300 {/i exch def
+	200 200 moveto  %P1 x i y fiksni
+	i 200			%P2 x promjenjiv
+	200 400 		%P3 x i  y fiksni
+	i 400 curveto 	%P4 x promjenjiv
+	stroke
+}for 
+grestore 

@@ -1,0 +1,46 @@
+10 10 translate
+/mreza {0.5 0.3 0 0 setcmykcolor 
+/xOs 500 def
+/yOs 600 def
+gsave
+2 setlinewidth xOs 0 moveto 0 0 lineto 0 yOs lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+6 { 30 100 moveto xOs 100 lineto stroke 0 100 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+5 { 100 20 moveto 100 yOs lineto stroke 100 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 yOs { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 xOs { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+0 setgray } bind def
+mreza
+%maska za izrezivanje clip naredbom može biti bilo koji složeni oblik ili oblik koji se ponavlja u petlji 
+/maska {
+	0 200 500 {/i exch def 		
+		/AvantGarde-Book findfont 200 scalefont setfont 0 i moveto 
+		(GRF) false charpath 
+	} for 
+	500 450 moveto 
+	450 450 50 0 360 arc 
+} def 
+
+/tekstura {
+	0 5 400 {/i exch def 
+		/b i 400 div def 
+		/b1 1 b sub def 
+		b1 0 b 0 setcmykcolor 
+		300 300 i 0 360 arc stroke
+	}for 
+} def 
+
+%dio koda koji izvršava crtanje:
+maska 		
+clip 		
+newpath 	
+tekstura	

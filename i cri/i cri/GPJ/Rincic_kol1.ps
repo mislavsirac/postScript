@@ -1,0 +1,75 @@
+10 10 translate
+/mreza {0.5 0.3 0 0 setcmykcolor 
+/xOs 500 def
+/yOs 600 def
+gsave
+2 setlinewidth xOs 0 moveto 0 0 lineto 0 yOs lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+6 { 30 100 moveto xOs 100 lineto stroke 0 100 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+5 { 100 20 moveto 100 yOs lineto stroke 100 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 yOs { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 xOs { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+0 setgray } bind def
+mreza
+gsave
+
+/D 10 def %dan
+/M 7 def %mjesec
+/G 2000 def %godina
+/X M 20 mul def  %x
+/Br D 2 mul def %brojac
+
+ 
+ /torta
+ {
+	X 0 G 30 div  M 10 mul G 10 div arc 
+	closepath
+ } def
+ 
+  200 200 translate %ishodiste
+ 
+ Br {
+           0 1 0 0 setcmykcolor 
+		   torta stroke		   
+		   360 Br div rotate 
+         } repeat
+		 
+
+
+%drugi
+grestore gsave
+/tX D 10 div def %poc tocka X
+/tY G 10 div def %poc tocka Y
+/zX G 10 div def %zavrs toc X
+ /krivulja 
+ {
+    tX tY moveto
+    200 20 180 190 zX 0 curveto
+    	
+ 
+ }def
+300 300 translate 
+gsave
+M 2 mul {
+         krivulja 
+		D 100 div setgray 
+		stroke
+        0 20 translate		 
+        }repeat
+grestore
+0 -1 scale
+M 2 mul {
+         krivulja 
+		D 100 div setgray 
+		stroke
+        0 20 translate		 
+        }repeat

@@ -1,0 +1,65 @@
+10 10 translate
+/mreza {0.5 0.3 0 0 setcmykcolor 
+/xOs 500 def
+/yOs 600 def
+gsave
+2 setlinewidth xOs 0 moveto 0 0 lineto 0 yOs lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+6 { 30 100 moveto xOs 100 lineto stroke 0 100 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+5 { 100 20 moveto 100 yOs lineto stroke 100 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 yOs { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 xOs { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+0 setgray } bind def
+mreza
+/maska {
+	0 100 300 {/i exch def 		
+		/Helvetica-Bold findfont 100 scalefont setfont 0 i moveto 
+		(Jere_Rin) false charpath 
+	} for 
+
+} def 
+
+/tekstura {
+	0 10 500 {/i exch def 
+		/b i 500 div def 
+		/b1 1 b sub def 
+		b b1 0 0 setcmykcolor 
+		i i moveto
+		0 i lineto stroke
+	}for 
+} def 
+
+/tekstura1 {
+	0 6 500 {/i exch def 
+		/b i 500 div def 
+		/b1 1 b sub def 
+		0 b b1 0 setcmykcolor 
+		i 0 moveto
+		i i lineto stroke
+	}for 
+} def 
+
+
+/Palatino findfont 70 scalefont setfont 
+    % widthshow
+    0 1 0 setrgbcolor
+    0 500 moveto 
+    20 15 74 (Jere_Rin) widthshow
+    % 74 ascii kod za slovo "j"
+ 
+
+%dio koda koji izvršava crtanje:
+maska 		
+clip 		
+newpath 	
+tekstura
+tekstura1	

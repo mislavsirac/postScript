@@ -1,0 +1,97 @@
+10 10 translate
+/mreza { 0.5 0.3 0 0 setcmykcolor 
+/xOs 500 def
+/yOs 600 def
+gsave
+2 setlinewidth xOs 0 moveto 0 0 lineto 0 yOs lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+6 { 30 100 moveto xOs 100 lineto stroke 0 100 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+5 { 100 20 moveto 100 yOs lineto stroke 100 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 yOs { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 xOs { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+ 0 setgray } bind def
+mreza
+gsave
+
+% scale se orjentira prema ishodistu kao i rotate
+% 1 1 scale oznacava originalnu velicinu x100% i y100%
+% parametar < 1 - smanjivanje 
+% parametar > 1 - povecavanje 
+
+100 100 50 0 360 arc stroke 
+0.9 0.9 scale % smanjenje za 10% u odnosu na originalnu velicinu
+100 100 50 0 360 arc stroke 
+0.9 0.9 scale % smanjenje od 10% u odnosu na prethodnu velicinu 
+100 100 50 0 360 arc stroke 
+0.9 0.9 scale 
+100 100 50 0 360 arc stroke 
+0.9 0.9 scale 
+100 100 50 0 360 arc stroke 
+grestore
+gsave 
+300 100 translate % promijenjeno ishodiste
+0 0 50 0 360 arc stroke 
+1.2 1.2 scale % povecanje za 20% u odnosu na originalnu velicinu
+0 0 50 0 360 arc stroke 
+1.2 1.2 scale % povecanje za 20% u odnosu na prethodnu velicinu
+0 0 50 0 360 arc stroke 
+1.2 1.2 scale
+0 0 50 0 360 arc stroke 
+grestore 
+gsave 
+200 300 translate 
+0 0 50 0 360 arc stroke 
+1.2 0.8 scale % neproporcionalno povecanje/smanjenje
+0 0 50 0 360 arc stroke 
+1.2 0.8 scale
+0 0 50 0 360 arc stroke 
+1.2 0.8 scale
+0 0 50 0 360 arc stroke 
+1.2 0.8 scale
+0 0 50 0 360 arc stroke 
+grestore
+
+% negativan parametar ispred scale definira zrcaljenje 
+
+0.7 0 0.8 setrgbcolor 
+3 setlinewidth
+gsave 
+	100 500 translate 
+	30 0 30 0 270 arc stroke 
+	-1 1 scale % horizontalno zrcaljenje 
+	30 0 30 0 270 arc stroke 
+grestore 
+gsave 
+	250 500 translate 
+	0 30 30 0 270 arc stroke 
+	1 -1 scale % vertikalno zrcaljenje 
+	0 30 30 0 270 arc stroke 
+grestore 
+gsave 
+	400 500 translate 
+	1.5 0.8 scale % horizontalno povecanje za 50% i vertikalno smanjenje za 20%
+	0 30 30 0 270 arc stroke 
+	-1 -1 scale % horizontalno i vertikalno zrcaljenje 
+	0 30 30 0 270 arc stroke 
+grestore 
+
+gsave 
+	400 300 translate
+	20 20 20 270 180 arc stroke % uvrsti arcn umjesto arc!
+	-1 1 scale 
+	20 20 20 270 180 arc stroke
+	1 -1 scale 
+	20 20 20 270 180 arc stroke
+	-1 1 scale 
+	20 20 20 270 180 arc stroke
+grestore 
+

@@ -1,0 +1,79 @@
+10 10 translate
+/mreza {0.5 0.3 0 0 setcmykcolor 
+/xOs 500 def
+/yOs 600 def
+gsave
+2 setlinewidth xOs 0 moveto 0 0 lineto 0 yOs lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+6 { 30 100 moveto xOs 100 lineto stroke 0 100 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+5 { 100 20 moveto 100 yOs lineto stroke 100 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 yOs { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 xOs { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+0 setgray } bind def
+
+mreza
+
+% krivulja u kontinuiranoj stazi
+
+/list{
+0 0 moveto
+0 250 lineto 
+
+0 300 50 270 90 arc 
+0 500 lineto
+100 450 lineto
+100 450 
+190 410 
+200 370 curveto 
+200 200 lineto
+200 200 
+20 250 
+0 0 curveto 
+
+
+} def
+
+gsave
+300 100 translate
+0.5 0.5 scale
+/b1 1 def
+/b2 0 def
+/b3 1.8 def
+/b4 0 def
+/brojac 9 def
+/kut 270 brojac div def
+/deltaB 1 brojac div def
+	brojac {
+list
+gsave 
+	b1 b2 b3 b4 setcmykcolor fill        
+grestore
+5 setlinewidth
+	0 0 1 0 setcmykcolor stroke
+kut rotate
+120 40 translate
+0.9 0.85 scale
+/b1 b1 deltaB sub def
+/b2 b2 deltaB add def
+/b3 b3 deltaB sub def
+/b4 b4 deltaB sub def
+} repeat
+grestore
+showpage
+
+
+
+
+
+
+
+ 

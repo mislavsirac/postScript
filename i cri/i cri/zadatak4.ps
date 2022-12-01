@@ -1,0 +1,115 @@
+10 10 translate
+/mreza {0.5 0.3 0 0 setcmykcolor 
+/xOs 500 def
+/yOs 600 def
+gsave
+2 setlinewidth xOs 0 moveto 0 0 lineto 0 yOs lineto stroke
+grestore
+gsave
+0.3 setlinewidth
+6 { 30 100 moveto xOs 100 lineto stroke 0 100 translate } repeat
+grestore
+gsave
+0.3 setlinewidth
+5 { 100 20 moveto 100 yOs lineto stroke 100 0 translate } repeat
+grestore
+gsave
+/tekst 3 string def /Helvetica findfont 10 scalefont setfont
+100 100 yOs { /y exch def 5 y 2 sub moveto y tekst cvs show } for
+90 100 xOs { /x exch def x 5 moveto x 10 add tekst cvs show } for
+grestore 
+0 setgray } bind def
+
+mreza
+
+/list {
+	5 0 moveto 
+	200 0 
+	200 100 
+	200 200 curveto 
+	200 100
+	0 200 
+	0 5 curveto 
+	150 120 lineto 
+	closepath
+} def
+
+%  roza u svijetlo rozu
+gsave
+350 100 translate
+0.5 0.5 scale
+	/b1 2 def
+	/b2 0 def
+	/b3 5 def
+	
+/brojac 25 def
+/kut 90 brojac div def
+/deltaB 1 brojac div def
+
+	brojac {
+	list
+gsave 
+	b1 b2 b3 setrgbcolor fill        
+grestore
+	0 1 1 setrgbcolor stroke
+kut rotate
+60 60 translate
+0.90 0.90 scale
+	/b1 b1 deltaB sub def
+	/b2 b2 deltaB add def
+	/b3 b3 deltaB sub def
+	
+} repeat
+grestore
+
+
+
+% baby roza a u zutu
+gsave
+250 100 translate
+-0.5 0.5 scale
+	/b1 0 def
+	/b2 0.5 def
+	/b3 0 def
+	
+/brojac 25 def
+/kut 90 brojac div def
+/deltaB 1 brojac div def
+
+	brojac {
+	list
+gsave 
+	b1 b2 b3 0 setcmykcolor fill        
+grestore
+	1 1 0 setrgbcolor stroke
+kut rotate
+60 60 translate
+0.90 0.90 scale
+	/b1 b1 deltaB sub def
+	/b2 b2 deltaB sub def
+	/b3 b3 deltaB add def
+	
+} repeat
+grestore
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
